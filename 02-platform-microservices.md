@@ -1,68 +1,87 @@
 # Platform and Microservices
 
-Inspect catalog, search, playback, entitlement, and asynchronous service interactions inside the application VPC.
+Inspect managed identity, private API integration, safe search, transactional outbox delivery, secrets, and observability.
 
 [Open the interactive diagram](./02-platform-microservices.html) · [Back to suite](./index.html)
+
+## Architecture decisions
+
+- Primary identity is managed by Cognito or an external OIDC provider; Aurora stores subscriber and entitlement state, not passwords.
+- The API path is WAF → API Gateway → VPC Link → internal load balancer → EKS; CloudFront is not an extra API hop.
+- Aurora business state and the outbox record commit in one transaction; consumers are idempotent.
+- OpenSearch is a rebuildable projection and never authorizes playback.
+
+## Add only when
+
+- Add ElastiCache only after measured Aurora or application latency identifies a hot read path.
+- Replace EventBridge/SQS with MSK only when Kafka compatibility, partition ordering, replay volume, or existing Kafka operations justify it.
+- Split the modular application when separate team ownership or scaling characteristics become real.
 
 ## Components
 
 | Component | Technology | Scope |
 |---|---|---|
 | Client | Viewer application | HTTPS |
-| Edge security | CloudFront · WAF | protected entry |
-| API Gateway | JWT · routing · throttle | public API |
-| EKS services | Auth · catalog · playback | private subnets |
-| Aurora | Users · catalog · rights | source of truth |
-| ElastiCache | Sessions · hot objects | TTL cache |
-| OpenSearch | Title discovery | search index |
-| Amazon MSK | Domain events | async backbone |
-| Event consumers | Notifications · analytics | autoscaled |
-| Secrets + KMS | Keys · runtime secrets | least privilege |
-| Observability | Metrics · logs · traces | operations |
+| Managed identity | Cognito or OIDC provider | OAuth 2.0 / OIDC |
+| Protected API | WAF · API Gateway · VPC Link | JWT + throttle |
+| OTT application | Internal ALB · EKS | modular deployables |
+| Aurora + outbox | Accounts · catalog · rights | atomic source of truth |
+| OpenSearch | Derived title index | rebuildable |
+| EventBridge | Domain event routing | schema controlled |
+| Consumer queues | Amazon SQS + DLQ | at-least-once |
+| Background consumers | Notifications · indexing | idempotent |
+| Secrets + KMS | Workload-scoped values | Pod Identity |
+| Observability | Metrics · logs · traces | SLO + alarms |
 
 ## 1. Authenticate a viewer
 
-- **What:** Authenticate a viewer and issue a short-lived application session.
-- **Why:** Every downstream catalog and playback decision needs a verified account and device context.
-- **How:** The request passes the protected edge and API Gateway to the EKS authentication service, which reads account policy from Aurora.
+- **What:** Authenticate a viewer and load the application policy needed for the session.
+- **Why:** The platform should not own password storage or token cryptography when a managed OIDC provider can do it.
+- **How:** The identity provider issues a short-lived token; API Gateway validates it before the application loads subscriber policy from Aurora.
 
-1. **Enter the protected edge:** The viewer reaches the platform through CloudFront and WAF.
-2. **Validate API boundary:** API Gateway applies routing and throttling.
-3. **Authenticate account:** The auth service verifies identity and device policy.
-4. **Load account policy:** The service reads the account, subscription, and device state.
-5. **Return account state:** The database returns only the fields needed for the decision.
-6. **Issue short-lived session:** The client receives a short-lived token and refresh policy.
+1. **Authenticate with the identity provider:** The client completes the supported sign-in or federation journey outside the application database.
+2. **Issue short-lived tokens:** The identity provider returns an access token and managed refresh policy.
+3. **Call the protected API:** The client presents the access token; API Gateway validates issuer, audience, expiry, and scope.
+4. **Forward verified claims:** Only verified identity claims cross the private integration.
+5. **Load subscriber policy:** The application reads account, subscription, and device policy—not credentials.
+6. **Return account state:** Aurora returns only the fields needed for the application decision.
+7. **Return application session state:** The response contains application policy and no new identity system.
 
-## 2. Search the catalog
+## 2. Search the entitled catalog
 
-- **What:** Search and rank titles that the viewer may access.
-- **Why:** Full-text discovery has different performance and query requirements from transactional catalog storage.
-- **How:** The EKS search service validates the request, queries OpenSearch, and applies entitlement and regional filtering before responding.
+- **What:** Search and rank titles the viewer is allowed to discover.
+- **Why:** Applying rights only after retrieval can leak counts and produce broken pagination.
+- **How:** The application loads current rights, includes market and availability constraints in the OpenSearch query, then performs a final safety check.
 
-1. **Submit a query:** The client supplies the query and filters.
-2. **Call search service:** The search service applies locale, availability, and safety filters.
-3. **Query the index:** OpenSearch executes text and facet retrieval.
-4. **Return ranked hits:** The index returns IDs, scores, and display metadata.
-5. **Return entitled results:** The service removes unavailable results before returning them.
+1. **Submit a search query:** The client supplies text, locale, and filters.
+2. **Call the application:** The protected API forwards verified account and market context.
+3. **Load current entitlement scope:** Aurora returns the active subscription, market, and rights constraints.
+4. **Return search constraints:** The application converts authoritative rights into safe query filters.
+5. **Query the constrained index:** Region, rights window, maturity, and availability filters execute with the text query.
+6. **Return ranked candidates:** The rebuildable index returns only candidates inside the supplied constraints.
+7. **Return final entitled results:** The application performs a final rights check to tolerate stale index data.
 
-## 3. Publish a domain event
+## 3. Publish a reliable domain event
 
-- **What:** Publish a domain event for independent background consumers.
-- **Why:** Notifications and analytics must not increase playback-request latency or couple services together.
-- **How:** An EKS service publishes a versioned event to Amazon MSK; autoscaled consumers process it and report lag and failures.
+- **What:** Publish an event without losing consistency between Aurora and downstream consumers.
+- **Why:** A database commit followed by a broker publish is an unsafe dual write.
+- **How:** The application commits business state and an outbox row atomically; a relay publishes to EventBridge and each consumer receives its own SQS queue.
 
-1. **Publish a domain event:** A service publishes an immutable event after committing business state.
-2. **Deliver to consumers:** Independent consumers receive the event without blocking playback.
-3. **Record processing outcome:** Consumers emit lag, error, and completion telemetry.
+1. **Commit state and outbox atomically:** The business change and immutable event record either both commit or both roll back.
+2. **Relay the committed event:** The relay reads only committed outbox rows and publishes a versioned event.
+3. **Route to consumer queues:** Each independent consumer gets buffering, retries, and a dead-letter queue.
+4. **Process idempotently:** The consumer records processed event IDs so duplicate delivery is harmless.
+5. **Record the processing outcome:** Completion, age, retries, and DLQ depth are observable.
 
 ## 4. Load a runtime secret
 
-- **What:** Load a protected runtime secret for one workload.
-- **Why:** Applications need keys and credentials without embedding them in images, code, or node-wide configuration.
-- **How:** The EKS workload uses its own IAM identity to request an encrypted secret governed by KMS and resource policy.
+- **What:** Load one protected runtime value for one workload.
+- **Why:** Applications need keys and credentials without embedding them in images or node-wide configuration.
+- **How:** The EKS workload uses Pod Identity to request an encrypted secret; access and failures are audited.
 
-1. **Request protected secret:** The workload uses its own IAM identity rather than node-wide credentials.
-2. **Return authorized value:** KMS and resource policy enforce the access decision.
+1. **Request the protected value:** The pod assumes its workload-scoped IAM role rather than node credentials.
+2. **Return the authorized version:** Secrets Manager and KMS enforce resource and key policies.
+3. **Record access outcome:** The application records success or failure without logging the value.
 
 ## Usage
 

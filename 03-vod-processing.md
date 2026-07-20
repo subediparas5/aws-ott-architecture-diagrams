@@ -1,151 +1,104 @@
 # Interactive AWS VOD Architecture
 
+Follow immutable upload, managed malware status, ABR processing, technical QC, packaging and DRM, playback QC, protected delivery, and piracy evidence.
+
 [Open the interactive diagram](./03-vod-processing.html) · [Back to suite](./index.html)
 
-Companion guide for `vod-architecture-interactive.html`.
+## Architecture decisions
 
-## Flow descriptions
+- VOD uses static HLS/DASH packages in S3; MediaPackage is not in this path unless just-in-time packaging becomes a real requirement.
+- Technical QC runs before packaging and protection; a second end-to-end gate tests manifests, DRM, captions, and representative playback.
+- GuardDuty Malware Protection for S3 supplies upload scan status; the workflow handles duplicate events and keys execution by object version.
+- Source fingerprinting is separate from session-specific forensic watermarking and licence issuance.
 
-### vod publish
+## Add only when
 
-- **What:** Publish a source asset as protected adaptive VOD content.
-- **Why:** Raw mezzanine files cannot be delivered safely or efficiently to diverse viewer devices.
-- **How:** S3 events start Step Functions; Lambda validates the asset; MediaConvert transcodes it; QC gates MediaPackage, DRM, origin, and CDN publication.
-
-### qc failure
-
-- **What:** Stop and remediate an asset that fails post-transcode quality control.
-- **Why:** Defective video, audio, captions, or manifests must never enter the customer-facing origin.
-- **How:** QC emits a structured failure, the workflow quarantines outputs, applies retry or review policy, and returns an actionable status.
-
-### playback
-
-- **What:** Authorize and deliver a protected VOD playback session.
-- **Why:** The platform must enforce rights while keeping the high-bandwidth media path scalable and cacheable.
-- **How:** The player presents short-lived authorization, resolves DRM and watermark policy, and receives signed manifests and segments through CloudFront.
-
-### forensic
-
-- **What:** Investigate suspected piracy using preserved asset and playback evidence.
-- **Why:** Attribution requires integrity-verified records linking the recovered copy to a known asset and session.
-- **How:** Source hashes, QC records, DRM, watermark, CDN, and player identifiers enter the evidence vault and are analyzed from verified working copies.
-
-## Purpose
-
-The interactive diagram explains four complete scenarios:
-
-1. Publishing a VOD asset successfully.
-2. Handling a post-transcode quality-control failure.
-3. Authorizing and delivering protected playback.
-4. Investigating suspected piracy using preserved digital evidence.
-
-The HTML diagram supports flow tabs, next/previous controls, autoplay, keyboard navigation, node selection, draggable nodes, fullscreen mode, and dark/light themes.
+- Add MediaPackage or another JIT packager only when output-format proliferation makes static packaging uneconomical.
+- Add a commercial watermark vendor only when piracy attribution is a funded business requirement.
+- Use a specialist QC vendor when the required codec, HDR, caption, or device matrix exceeds the internal QC service.
 
 ## Components
 
-| Component | AWS services or function | Responsibility |
+| Component | Technology | Scope |
 |---|---|---|
-| Content upload | Content owner or CMS | Supplies the mezzanine video and required metadata. |
-| S3 raw ingest | Amazon S3 | Preserves the original source separately from processed outputs. |
-| Workflow | Amazon EventBridge and AWS Step Functions | Starts and coordinates one idempotent asset-processing execution. |
-| Validate and identify | AWS Lambda and security scanning | Validates the source, checks malware status, assigns an asset ID, and calculates SHA-256. |
-| MediaConvert | AWS Elemental MediaConvert | Produces the adaptive-bitrate video, audio, and caption renditions. |
-| Post-transcode QC | External or custom automated QC | Decodes and validates MediaConvert outputs before publication. |
-| Package and protect | AWS Elemental MediaPackage, DRM integration, and forensic watermarking | Creates HLS/DASH presentations, applies content protection, and assigns traceable watermark data. |
-| Origin and CDN | Amazon S3 and Amazon CloudFront | Stores approved manifests and segments and delivers them globally. |
-| Viewer player | Web, mobile, TV, or streaming-device application | Requests authorized playback, obtains DRM rights, adapts bitrate, and emits telemetry. |
-| Quarantine | Isolated Amazon S3 prefix or bucket | Prevents failed media from entering the origin namespace. |
-| Evidence vault | Amazon S3 Object Lock and Amazon Security Lake | Preserves immutable evidence and normalizes security telemetry. |
-| Investigator | Amazon Detective, Athena, and the case process | Builds a verified working set, reconstructs events, and documents findings and actions. |
+| Content owner / CMS | Mezzanine + metadata | upload + status |
+| S3 raw ingest | Versioned original | quarantine namespace |
+| Scan + workflow | GuardDuty · EventBridge · Step Functions | idempotent asset |
+| MediaConvert stage 1 | ABR renditions | jobId |
+| Technical QC | Decode · audio · captions | PASS / FAIL |
+| Package + protect | MediaConvert · SPEKE DRM | static HLS / DASH |
+| Playback QC | Manifest · DRM · device smoke | PASS / FAIL |
+| Approved origin + CDN | S3 · CloudFront OAC | signed media path |
+| Viewer player | Web · mobile · TV | playback session |
+| DRM + watermark service | Licence + session mapping | vendor integration |
+| Failed-output quarantine | Isolated S3 namespace | not publishable |
+| Evidence vault | S3 Object Lock | case-specific originals |
+| Piracy investigation | Athena + case workflow | verified working copies |
 
-## Flow 1 - Publish a VOD asset
+## 1. Publish a protected VOD asset
 
-1. The CMS uploads the original mezzanine and metadata to S3 raw ingest.
-2. The S3 object-created event reaches EventBridge and starts Step Functions.
-3. Lambda validates the trust boundary, checks malware status, assigns the immutable asset ID, and records the source SHA-256.
-4. The workflow submits an ABR job to MediaConvert.
-5. Completed outputs enter a separate post-transcode QC process.
-6. A passing result allows MediaPackage, DRM, and forensic-watermark processing.
-7. Only approved outputs are promoted to the S3 origin and CloudFront distribution.
-8. An authorized player receives the manifest and streams adaptive segments.
+- **What:** Publish one immutable source as protected adaptive VOD.
+- **Why:** Raw mezzanine content cannot be delivered safely or efficiently to diverse devices.
+- **How:** An object-versioned workflow waits for malware status, creates ABR renditions, runs technical QC, packages and encrypts, runs playback QC, and promotes only passing output to S3 and CloudFront.
 
-## Flow 2 - Handle a QC failure
+1. **Upload immutable source and metadata:** The CMS stores the original object version separately from every processed output.
+2. **Start one safe asset execution:** The workflow starts only after GuardDuty reports a non-malicious object; bucket, key, and version form the idempotency key.
+3. **Create ABR renditions:** Validation records the asset ID, source checksum, supported tracks, and selected output profile before stage-one encoding.
+4. **Run technical media QC:** The first gate decodes stage-one outputs and validates essence, audio, captions, and encoding conformance.
+5. **Package and encrypt:** A second managed job creates static HLS/DASH packages in staging and obtains content keys from the approved DRM provider.
+6. **Run end-to-end playback QC:** The second gate verifies manifests, segments, licence acquisition, captions, seek behavior, and representative playback.
+7. **Promote approved output:** Only content that passes both gates enters the approved S3 namespace exposed through CloudFront OAC.
+8. **Return publication status:** The content owner receives the exact approved presentation and immutable processing identifiers.
 
-QC is a publish gate rather than a decorative monitoring step.
+## 2. Handle a technical QC failure
 
-1. QC evaluates the completed MediaConvert outputs.
-2. A blocking defect produces a structured failure result.
-3. Failed outputs enter quarantine and remain unavailable to the delivery origin.
-4. Step Functions records the failure and applies the approved retry or operator-review policy.
-5. The content owner receives the exact rule failure and remediation status.
+- **What:** Stop and remediate an asset that fails technical QC.
+- **Why:** Defective essence, audio, captions, or encoding must never enter the customer-facing origin.
+- **How:** The technical gate emits a structured failure, quarantines stage-one output, applies controlled retry or review policy, and returns an actionable status.
 
-Typical QC checks:
+1. **Detect a blocking defect:** The first gate rejects a publish-blocking rule such as decode integrity, A/V sync, or required-caption failure.
+2. **Quarantine failed outputs:** The failed rendition set is tagged and isolated so no later step can promote it.
+3. **Choose controlled remediation:** Step Functions records the failure and selects a bounded retry or operator review.
+4. **Return the exact failure:** The CMS receives the failed rule and remediation state instead of a generic processing error.
 
-- Decode integrity and corrupt frames.
-- Black or frozen frames.
-- Audio presence, loudness, channel mapping, and A/V synchronization.
-- Codec, resolution, frame rate, bitrate, color, and HDR conformance.
-- Caption presence, format, and synchronization.
-- Manifest, segment, and playback integrity.
+## 3. Authorize and deliver playback
 
-## Flow 3 - Authorize and deliver playback
+- **What:** Authorize one protected VOD playback session.
+- **Why:** Rights must be enforced without proxying high-bandwidth video through EKS.
+- **How:** The playback edge validates short-lived access, resolves DRM and session watermark policy, returns cached media, and lets the player request its licence directly.
 
-1. The player requests a manifest with short-lived playback authorization.
-2. The protected presentation resolves DRM policy and a session-specific forensic-watermark identifier.
-3. CloudFront returns the protected manifest and segments without proxying video through general application compute.
-4. The player obtains the required DRM license, adapts rendition selection, and emits QoE events containing the playback-session identifier.
+1. **Request the signed manifest:** The player presents short-lived authorization tied to account, device, title, and session.
+2. **Resolve session protection:** The edge resolves the DRM policy and, when enabled, creates a session-specific watermark mapping.
+3. **Return protected session policy:** The service returns licence metadata, approved presentation, and optional watermark mapping.
+4. **Return manifests and segments:** CloudFront serves protected media directly from the approved S3 origin.
+5. **Request a DRM licence:** The player presents its DRM challenge and playback-session context directly to the rights service.
+6. **Issue licence and record mapping:** The response enables playback and records the minimum session, licence, and watermark identifiers needed for audit.
 
-## Flow 4 - Investigate suspected piracy
+## 4. Investigate suspected piracy
 
-1. Source provenance is preserved using the asset ID, original object version, and SHA-256 digest.
-2. QC tool version, checks, result, and normalized UTC time are preserved.
-3. Playback, CDN, DRM-license, and watermark records are correlated using stable identifiers.
-4. The investigator receives verified working copies while originals remain retention-locked.
-5. A watermark extracted from a suspected copy is resolved to the asset and playback session.
-6. Authorized responders may revoke sessions, restrict accounts, update controls, and preserve a legal hold.
+- **What:** Investigate a suspected pirated copy using preserved provenance and playback records.
+- **Why:** Attribution requires integrity-verified records that connect the recovered copy to an asset and session.
+- **How:** The evidence vault stores selected originals and manifests; investigators use verified working copies and specialist watermark results.
+
+1. **Preserve source provenance:** The case manifest records the asset ID, original object version, source hash, and workflow identifiers.
+2. **Preserve QC evidence:** The exact tool version, checks, measurements, result, and UTC timestamp are retained.
+3. **Preserve session protection records:** DRM licence and watermark mappings are linked by stable asset and playback-session identifiers.
+4. **Create a verified working set:** Originals remain locked; the investigator receives hash-verified working copies and custody records.
+5. **Resolve recovered watermark:** A specialist extraction result maps the suspected copy to an asset and authorized playback session.
+6. **Contain and document:** Authorized responders revoke the affected session or account and preserve the decision in the case record.
+
+## QC policy
+
+Technical QC checks decoded essence: corrupt or frozen frames, A/V sync, loudness and channel mapping, caption presence and timing, codec, frame rate, bitrate, color, and HDR conformance. Playback QC runs after packaging and protection and verifies manifests, segment continuity, DRM licence acquisition, captions, seek behavior, and representative devices.
 
 ## Evidence keys
 
-| Key | Use |
-|---|---|
-| Asset ID | Connects source, renditions, catalog entry, protection policy, and evidence. |
-| Source SHA-256 | Verifies that evidence or recovered content matches a known asset. |
-| Workflow execution ID | Connects orchestration events and processing decisions. |
-| MediaConvert job ID | Identifies the precise transformation job and configuration. |
-| QC result ID | Identifies the checks, tool version, measurements, and outcome. |
-| DRM license ID | Connects rights issuance to account, device, title, and session. |
-| Watermark ID | Connects a recovered copy to a distributed playback session. |
-| Playback session ID | Connects authorization, DRM, CDN, and player telemetry. |
-| CDN request ID | Supports delivery-path reconstruction and troubleshooting. |
-| UTC timestamp | Enables a consistent cross-system timeline. |
+Asset ID, S3 object version, source SHA-256, workflow execution ID, MediaConvert job IDs, both QC result IDs, DRM licence ID, watermark ID, playback-session ID, CDN request ID, and normalized UTC timestamps connect the case.
 
 ## Chain of custody
 
-Every material evidence item should include:
+Original evidence remains in an Object Lock bucket. Every acquisition records the source account, Region, service, object version, collector identity, UTC time, SHA-256, retention state, and case ID. Analysis uses hash-verified working copies; access, export, transfer, action, and disposition are recorded.
 
-- Case ID and evidence ID.
-- Source account, Region, service, resource, and object version.
-- Collector identity and collection time in UTC.
-- SHA-256 calculated or verified at acquisition.
-- Evidence-vault bucket, object key, version, and retention status.
-- Every access, export, copy, transfer, analysis action, and disposition.
-- Verification that analysis used a working copy rather than modifying the preserved original.
+## Usage
 
-## Operational decisions to confirm
-
-- Supported codecs, resolutions, HDR formats, audio layouts, captions, and playback devices.
-- QC vendor or implementation and which rules block publication.
-- Retry limits and which failures require operator approval.
-- DRM providers, license policies, and forensic-watermark integration.
-- Evidence-retention periods, Object Lock mode, data residency, and legal-hold authority.
-- Required concurrent-viewer capacity, publication latency, availability, RPO, and RTO.
-
-## Opening the diagram
-
-On macOS:
-
-```bash
-open outputs/vod-architecture-interactive.html
-```
-
-The file is self-contained except for optional Google Fonts; it falls back to system fonts when offline.
+Choose a scenario tab, then use **Next**, **Previous**, or **Play**. Click a node to jump to its first step. Drag nodes to refine the layout; press **R** to reset, **F** for fullscreen, and **T** to switch theme.

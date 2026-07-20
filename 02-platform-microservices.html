@@ -666,6 +666,9 @@
   .canvas{overflow-x:auto;overscroll-behavior-x:contain}
   .stage{width:1450px!important;min-width:1450px;height:720px!important}
   .canvas.is-fullscreen .stage{width:1800px!important;min-width:1800px;height:calc(100vh - 80px)!important}
+  body.fullscreen-active{overflow:hidden}
+  body.fullscreen-active main{z-index:10000}
+  body.fullscreen-active .canvas.is-fullscreen{z-index:10001}
   .wire.preview{stroke-width:1.1;opacity:.20}
   .wire.active{stroke-width:3.5;opacity:1}
   .wire-label.preview{opacity:.35}
@@ -1692,7 +1695,8 @@ const canvas = document.querySelector(".canvas");
 const btnFullscreen = document.getElementById("btnFullscreen");
 
 function toggleFullscreen(){
-  canvas.classList.toggle("is-fullscreen");
+  const enabled = canvas.classList.toggle("is-fullscreen");
+  document.body.classList.toggle("fullscreen-active", enabled);
   setTimeout(()=>{ drawWires(); applyStep(); }, 50);
 }
 btnFullscreen.addEventListener("click", toggleFullscreen);

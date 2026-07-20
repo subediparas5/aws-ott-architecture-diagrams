@@ -8,10 +8,11 @@ Explore deployment, security detection, regional recovery, and evidence-backed i
 
 | Component | Technology | Scope |
 |---|---|---|
-| Developer | Git repository | signed change |
-| CodePipeline | Release orchestration | approved stages |
-| CodeBuild | Test + scan + build | ephemeral |
-| Amazon ECR | Signed container images | immutable tag |
+| Developer | Local Git checkout | feature commit |
+| GitHub | Application repository | push event |
+| GitHub Actions | Build · test · publish | workflow |
+| Argo CD repo | Kubernetes desired state | Git commit |
+| Argo CD | GitOps reconciler | sync policy |
 | Primary EKS | Production workloads | multi-AZ |
 | Observability | CloudWatch + tracing | alerts |
 | Detection | GuardDuty + Security Hub | findings |
@@ -23,15 +24,16 @@ Explore deployment, security detection, regional recovery, and evidence-backed i
 
 ## 1. Deploy an application release
 
-- **What:** Build and progressively deploy an approved application release.
-- **Why:** Production changes need repeatability, security checks, health gates, and rollback capability.
-- **How:** CodePipeline orchestrates CodeBuild checks, publishes an immutable ECR digest, deploys to EKS, and verifies service-level signals.
+- **What:** Build an application change and deploy it to Amazon EKS through GitOps.
+- **Why:** The application repository should trigger CI, while the Argo CD repository remains the auditable source of truth for production desired state.
+- **How:** A developer pushes to GitHub, GitHub Actions builds and verifies the release, commits the new image digest to the Argo CD repository, and Argo CD synchronizes the application to EKS.
 
-1. **Submit an approved change:** A reviewed and signed change starts the release pipeline.
-2. **Build and verify:** The build runs tests, dependency checks, image scanning, and policy validation.
-3. **Publish immutable image:** The pipeline pushes the verified image under an immutable digest.
-4. **Deploy progressively:** The release deploys using health gates and rollback criteria.
-5. **Verify service health:** Operations confirms latency, error rate, saturation, and business signals.
+1. **Push application change:** The developer pushes the reviewed application commit to the GitHub application repository.
+2. **Trigger GitHub Actions:** The push event starts the CI workflow for build, test, security checks, and artifact publication.
+3. **Commit desired-state change:** After a successful build, GitHub Actions updates the Kubernetes image digest in the Argo CD repository and commits the change.
+4. **Detect desired-state commit:** Argo CD detects the new Git commit and compares the declared state with the live EKS cluster.
+5. **Synchronize application to EKS:** Argo CD applies the Kubernetes manifests to Amazon EKS using the configured sync and health policies.
+6. **Verify deployment health:** Argo CD health status and CloudWatch signals confirm the new release is healthy.
 
 ## 2. Detect and triage a threat
 

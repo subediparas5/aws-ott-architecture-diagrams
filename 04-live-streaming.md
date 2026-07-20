@@ -2,7 +2,7 @@
 
 Follow contribution, dual-input encoding, MediaPackage v2, CloudFront delivery, feed failover, harvest jobs, and live evidence.
 
-[Open the interactive diagram](./04-live-streaming.html) · [Back to suite](./index.html)
+[Open the interactive diagram](./04-live-streaming.html) · [Download Draw.io](./drawio/04-live-streaming.drawio) · [Back to suite](./index.html)
 
 ## Architecture decisions
 

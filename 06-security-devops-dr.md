@@ -2,7 +2,7 @@
 
 Explore production promotion, security detection, objective-driven regional recovery, and case-specific digital evidence.
 
-[Open the interactive diagram](./06-security-devops-dr.html) · [Back to suite](./index.html)
+[Open the interactive diagram](./06-security-devops-dr.html) · [Download Draw.io](./drawio/06-security-devops-dr.drawio) · [Back to suite](./index.html)
 
 ## Architecture decisions
 

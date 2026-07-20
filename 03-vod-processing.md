@@ -2,7 +2,7 @@
 
 Follow immutable upload, managed malware status, ABR processing, technical QC, packaging and DRM, playback QC, protected delivery, and piracy evidence.
 
-[Open the interactive diagram](./03-vod-processing.html) · [Back to suite](./index.html)
+[Open the interactive diagram](./03-vod-processing.html) · [Download Draw.io](./drawio/03-vod-processing.drawio) · [Back to suite](./index.html)
 
 ## Architecture decisions
 

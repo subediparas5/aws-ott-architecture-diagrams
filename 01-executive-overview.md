@@ -2,7 +2,7 @@
 
 Follow the business, media, event, analytics, and evidence paths without turning the executive view into a service inventory.
 
-[Open the interactive diagram](./01-executive-overview.html) · [Back to suite](./index.html)
+[Open the interactive diagram](./01-executive-overview.html) · [Download Draw.io](./drawio/01-executive-overview.drawio) · [Back to suite](./index.html)
 
 ## Architecture decisions
 

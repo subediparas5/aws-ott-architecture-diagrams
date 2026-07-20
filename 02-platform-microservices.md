@@ -2,7 +2,7 @@
 
 Inspect managed identity, private API integration, safe search, transactional outbox delivery, secrets, and observability.
 
-[Open the interactive diagram](./02-platform-microservices.html) · [Back to suite](./index.html)
+[Open the interactive diagram](./02-platform-microservices.html) · [Download Draw.io](./drawio/02-platform-microservices.drawio) · [Back to suite](./index.html)
 
 ## Architecture decisions
 

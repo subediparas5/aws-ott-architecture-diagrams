@@ -2,7 +2,7 @@
 
 Follow privacy-safe telemetry into S3 and Athena, managed recommendations, and external ad decisions stitched by MediaTailor.
 
-[Open the interactive diagram](./05-analytics-recommendation-adtech.html) · [Back to suite](./index.html)
+[Open the interactive diagram](./05-analytics-recommendation-adtech.html) · [Download Draw.io](./drawio/05-analytics-recommendation-adtech.drawio) · [Back to suite](./index.html)
 
 ## Architecture decisions
 

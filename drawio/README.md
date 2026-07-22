@@ -9,3 +9,4 @@ Each file contains one page per flow, including What / Why / How and numbered ha
 - [04-live-streaming](04-live-streaming.drawio)
 - [05-analytics-recommendation-adtech](05-analytics-recommendation-adtech.drawio)
 - [06-security-devops-dr](06-security-devops-dr.drawio)
+- [07-nepal-hybrid-on-prem](07-nepal-hybrid-on-prem.drawio) — Four pages: full hybrid deployment, VOD/live media flows, platform/analytics/security/forensics, and disaster-recovery/cost boundaries. [PNG preview](07-nepal-hybrid-on-prem.drawio.png)

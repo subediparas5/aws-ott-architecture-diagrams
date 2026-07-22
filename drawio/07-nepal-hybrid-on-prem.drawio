@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram name="1 Full Hybrid Architecture">
+    <mxGraphModel dx="2800" dy="1540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2800" pageHeight="1540" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1 Full Hybrid Architecture_title" value="NEPAL HYBRID OTT — FULL OWNERSHIP AND DEPLOYMENT MAP" style="text;html=1;align=left;verticalAlign=middle;fontSize=27;fontStyle=1;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="70" y="25" width="2660" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="1 Full Hybrid Architecture_subtitle" value="Own predictable compute, media processing, origin, analytics, security and recovery in Nepal; retain the globally distributed edge." style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontColor=#4B5563;" vertex="1" parent="1">
+          <mxGeometry x="70" y="75" width="2660" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_external" value="RETAINED MANAGED EDGE, PARTNERS AND SOURCES" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#6B7280;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="130" width="2660" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_viewers" value="Web · Mobile · TV&#10;viewers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_external">
+          <mxGeometry x="30" y="65" width="210" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_edge" value="Authoritative DNS&#10;WAF + global DDoS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_external">
+          <mxGeometry x="300" y="65" width="230" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_cdn" value="Multi-CDN&#10;Nepal ISP edge caches" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p1_external">
+          <mxGeometry x="590" y="55" width="260" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_partners" value="OIDC · DRM · watermark&#10;external ADS / SSAI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#6B7280;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;dashed=1;" vertex="1" parent="p1_external">
+          <mxGeometry x="930" y="65" width="290" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_github" value="Developer push&#10;GitHub Actions + GitOps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#4A5568;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_external">
+          <mxGeometry x="1300" y="65" width="290" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_source" value="Venue / studio&#10;dual SRT or RIST" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_external">
+          <mxGeometry x="1670" y="65" width="260" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_escrow" value="Small off-country escrow&#10;source · keys · WORM evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;dashed=1;" vertex="1" parent="p1_external">
+          <mxGeometry x="2010" y="65" width="310" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_peering" value="npIX / private peering&#10;carrier cross-connects" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#6B7280;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;dashed=1;" vertex="1" parent="p1_external">
+          <mxGeometry x="2400" y="65" width="220" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_primary" value="PRIMARY NEPAL CARRIER-NEUTRAL DATA CENTER" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="390" width="1840" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_runtime" value="PLATFORM AND STATE" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="p1_primary">
+          <mxGeometry x="30" y="50" width="1780" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_network" value="Dual ISP / BGP&#10;HA firewall + load balancer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_runtime">
+          <mxGeometry x="20" y="70" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_k8s" value="Kubernetes application platform&#10;API · catalog · rights · entitlement · playback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p1_runtime">
+          <mxGeometry x="320" y="55" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_state" value="PostgreSQL HA · OpenSearch&#10;NATS JetStream" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_runtime">
+          <mxGeometry x="760" y="70" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_delivery" value="Harbor + GitOps + Argo CD&#10;signed immutable releases" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#4A5568;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_runtime">
+          <mxGeometry x="1100" y="70" width="330" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_repl" value="Replication gateway&#10;state · objects · backups" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_runtime">
+          <mxGeometry x="1500" y="70" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_media" value="MEDIA PROCESSING AND ORIGIN" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="p1_primary">
+          <mxGeometry x="30" y="270" width="1780" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_vod" value="VOD pipeline&#10;scan → FFmpeg → QC → package" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_media">
+          <mxGeometry x="20" y="70" width="320" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_object" value="Ceph / MinIO object origin&#10;VOD · catch-up · analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;shape=cylinder3;" vertex="1" parent="p1_media">
+          <mxGeometry x="400" y="70" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_handoff" value="CDN cache-fill handoff&#10;origin shield / private peering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p1_media">
+          <mxGeometry x="820" y="70" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_live" value="Live origin&#10;SRT gateway → redundant encoders → package" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_media">
+          <mxGeometry x="1220" y="70" width="520" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_ops" value="ANALYTICS, SECURITY, FORENSICS AND BACKUP" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="p1_primary">
+          <mxGeometry x="30" y="500" width="1780" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_analytics" value="Parquet/Iceberg lake&#10;Trino/DuckDB · dashboards · recs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_ops">
+          <mxGeometry x="20" y="95" width="350" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_detection" value="Prometheus/Grafana/Loki&#10;Wazuh · Falco · Suricata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_ops">
+          <mxGeometry x="440" y="95" width="350" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_evidence" value="Separate WORM evidence vault&#10;hash · signature · custody log" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=cylinder3;" vertex="1" parent="p1_ops">
+          <mxGeometry x="860" y="85" width="370" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_backup" value="Encrypted backup vault&#10;restore-tested copies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;shape=cylinder3;" vertex="1" parent="p1_ops">
+          <mxGeometry x="1300" y="95" width="280" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_recovery_feed" value="Async recovery feed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_ops">
+          <mxGeometry x="1640" y="105" width="100" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_dr" value="RECOVERY NEPAL FAILURE DOMAIN" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1980" y="390" width="750" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_dr_runtime" value="Recovery Kubernetes + network&#10;minimum warm capacity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_dr">
+          <mxGeometry x="40" y="80" width="670" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_dr_state" value="PostgreSQL replica + registry mirror&#10;promote only after recovery gate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p1_dr">
+          <mxGeometry x="40" y="250" width="670" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_dr_object" value="Replicated object and backup vault&#10;independent retention controls" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;shape=cylinder3;" vertex="1" parent="p1_dr">
+          <mxGeometry x="40" y="420" width="670" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_dr_evidence" value="Immutable evidence replica&#10;separate custodian" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;shape=cylinder3;" vertex="1" parent="p1_dr">
+          <mxGeometry x="40" y="590" width="670" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_dr_gate" value="Quarterly loss-of-site test&#10;restore → verify → DNS failover" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p1_dr">
+          <mxGeometry x="40" y="750" width="670" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e01" value="1 · request" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2B6CB0;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_viewers" target="p1_edge">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e02" value="protected route" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#805AD5;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_edge" target="p1_cdn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e03" value="API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#2B6CB0;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_cdn" target="p1_network">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e04" value="load-balanced" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2B6CB0;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_network" target="p1_k8s">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e05" value="transactions + events" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2B6CB0;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_k8s" target="p1_state">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e06" value="6 · release" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#4A5568;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_github" target="p1_delivery">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e07" value="3 · contribution" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#C53030;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_source" target="p1_live">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e08" value="2 · approved package" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#D69E2E;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_vod" target="p1_object">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e09" value="VOD cache fill" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#D69E2E;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_object" target="p1_handoff">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e10" value="live cache fill" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#C53030;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_live" target="p1_handoff">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e11" value="to edge" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=#2B6CB0;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p1_handoff" target="p1_cdn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e12" value="7 · replicated state" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p1_repl" target="p1_dr_runtime">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e13" value="7 · objects / evidence" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p1_recovery_feed" target="p1_dr_object">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_e14" value="encrypted escrow" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p1_dr_evidence" target="p1_escrow">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_decision" value="COST BOUNDARY" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#6B7280;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1270" width="2660" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_low" value="0–1K&#10;Stay cloud / managed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p1_decision">
+          <mxGeometry x="30" y="55" width="500" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_mid" value="~10K&#10;Negotiate CDN before CAPEX" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p1_decision">
+          <mxGeometry x="600" y="55" width="590" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_high" value="~100K&#10;Hybrid becomes economically credible" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p1_decision">
+          <mxGeometry x="1260" y="55" width="620" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_no" value="Keep CDN / ISP edge&#10;100K live = 410 Gbps raw / 615 Gbps engineered" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p1_decision">
+          <mxGeometry x="1950" y="55" width="670" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="2 VOD and Live Flows">
+    <mxGraphModel dx="2820" dy="1130" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2820" pageHeight="1130" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2 VOD and Live Flows_title" value="NEPAL IN-HOUSE MEDIA PIPELINES" style="text;html=1;align=left;verticalAlign=middle;fontSize=27;fontStyle=1;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="70" y="25" width="2680" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="2 VOD and Live Flows_subtitle" value="Separate VOD and live lanes keep the handoffs readable; both terminate at the retained CDN / Nepal ISP edge." style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontColor=#4B5563;" vertex="1" parent="1">
+          <mxGeometry x="70" y="75" width="2680" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_vod_lane" value="VOD — WHAT: protected ABR package · WHY: predictable batch cost + quality gates · HOW: scan → transcode → two QC gates → object origin" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="140" width="2680" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_upload" value="Upload master&#10;quarantine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_vod_lane">
+          <mxGeometry x="25" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_scan" value="ClamAV + YARA&#10;malware PASS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_vod_lane">
+          <mxGeometry x="315" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_transcode" value="FFmpeg ABR&#10;CPU/GPU workers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_vod_lane">
+          <mxGeometry x="605" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_tqc" value="ffprobe +&#10;technical QC PASS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_vod_lane">
+          <mxGeometry x="895" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_package" value="Shaka/Bento4&#10;DRM package" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_vod_lane">
+          <mxGeometry x="1185" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_pqc" value="Playback QC&#10;manifest/segment PASS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_vod_lane">
+          <mxGeometry x="1475" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_store" value="Ceph / MinIO&#10;approved package" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p2_vod_lane">
+          <mxGeometry x="1765" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_publish" value="Catalog publish&#10;rights + availability" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_vod_lane">
+          <mxGeometry x="2055" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_cdn_vod" value="CDN / ISP cache&#10;viewer delivery" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p2_vod_lane">
+          <mxGeometry x="2345" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ve0" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#805AD5;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_upload" target="p2_scan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ve1" value="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#D69E2E;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_scan" target="p2_transcode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ve2" value="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#D69E2E;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_transcode" target="p2_tqc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ve3" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#D69E2E;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_tqc" target="p2_package">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ve4" value="5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#D69E2E;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_package" target="p2_pqc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ve5" value="6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#D69E2E;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_pqc" target="p2_store">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ve6" value="7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#D69E2E;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_store" target="p2_publish">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ve7" value="8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#D69E2E;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_publish" target="p2_cdn_vod">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_live_lane" value="LIVE — WHAT: redundant adaptive live stream · WHY: continuous service + device compatibility · HOW: dual contribution → A/B encode → origin → CDN" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="540" width="2680" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_source" value="Venue / studio&#10;dual feeds" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_live_lane">
+          <mxGeometry x="25" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_gateway" value="SRT/RIST gateways&#10;A/B contribution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_live_lane">
+          <mxGeometry x="315" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_encode" value="Redundant FFmpeg/GPU&#10;A/B encoders" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_live_lane">
+          <mxGeometry x="605" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_lqc" value="Continuity + loudness&#10;input/output health" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_live_lane">
+          <mxGeometry x="895" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_origin" value="Live packager/origin&#10;HLS/DASH + catch-up writer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_live_lane">
+          <mxGeometry x="1185" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_drm" value="DRM / watermark&#10;partner boundary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;dashed=1;" vertex="1" parent="p2_live_lane">
+          <mxGeometry x="1475" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ssai" value="Managed SSAI + ADS&#10;retained first" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#6B7280;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;dashed=1;" vertex="1" parent="p2_live_lane">
+          <mxGeometry x="1765" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_cdn_live" value="CDN / ISP cache&#10;viewer fan-out" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p2_live_lane">
+          <mxGeometry x="2055" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_measure" value="Viewer playback&#10;QoE + ad metrics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p2_live_lane">
+          <mxGeometry x="2345" y="105" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_le0" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#C53030;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_source" target="p2_gateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_le1" value="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#C53030;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_gateway" target="p2_encode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_le2" value="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#C53030;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_encode" target="p2_lqc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_le3" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#C53030;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_lqc" target="p2_origin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_le4" value="5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#C53030;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p2_origin" target="p2_drm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_le5" value="6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#C53030;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p2_drm" target="p2_ssai">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_le6" value="7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#C53030;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_ssai" target="p2_cdn_live">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_le7" value="8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2F855A;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p2_cdn_live" target="p2_measure">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_boundary" value="DELIVERY BOUNDARY&#10;The origin serves cache fill. It does not fan out 410–615 Gbps directly to 100K live viewers." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="940" width="1780" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="3 Platform Analytics Security">
+    <mxGraphModel dx="2820" dy="1510" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2820" pageHeight="1510" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3 Platform Analytics Security_title" value="PLATFORM, RELEASE, ANALYTICS AND DIGITAL FORENSICS" style="text;html=1;align=left;verticalAlign=middle;fontSize=27;fontStyle=1;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="70" y="25" width="2680" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="3 Platform Analytics Security_subtitle" value="Straight, independent lanes show exact responsibilities without implying that analytics or logs are transactional truth." style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontColor=#4B5563;" vertex="1" parent="1">
+          <mxGeometry x="70" y="75" width="2680" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_release" value="RELEASE — developer push → GitHub Actions → signed image + GitOps update → Argo CD → Kubernetes" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#4A5568;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="140" width="2680" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_dev" value="Developer&#10;push to GitHub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#4A5568;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_release">
+          <mxGeometry x="80" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_actions" value="GitHub Actions&#10;build + test" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#4A5568;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_release">
+          <mxGeometry x="600" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_artifact" value="Sign image in Harbor&#10;commit GitOps change" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#4A5568;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p3_release">
+          <mxGeometry x="1120" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_argo" value="Argo CD&#10;reads desired state" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#4A5568;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_release">
+          <mxGeometry x="1640" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_deploy" value="Kubernetes&#10;reconciles release" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#4A5568;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p3_release">
+          <mxGeometry x="2160" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_re0" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#4A5568;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_dev" target="p3_actions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_re1" value="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#4A5568;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_actions" target="p3_artifact">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_re2" value="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#4A5568;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_artifact" target="p3_argo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_re3" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#4A5568;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_argo" target="p3_deploy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_control" value="CONTROL AND STATE — authoritative write → transactional outbox → event bus → rebuildable projections" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="420" width="2680" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_ingress" value="DNS/WAF → HA LB&#10;private platform ingress" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_control">
+          <mxGeometry x="80" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_api" value="Kubernetes services&#10;identity · catalog · rights" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_control">
+          <mxGeometry x="600" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_tx" value="PostgreSQL HA&#10;write + outbox atomically" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p3_control">
+          <mxGeometry x="1120" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_bus" value="NATS JetStream&#10;events + work queues" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_control">
+          <mxGeometry x="1640" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_projection" value="OpenSearch + caches&#10;rebuildable projections" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_control">
+          <mxGeometry x="2160" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_ce0" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2B6CB0;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_ingress" target="p3_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_ce1" value="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2B6CB0;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_api" target="p3_tx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_ce2" value="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2F855A;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_tx" target="p3_bus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_ce3" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2F855A;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_bus" target="p3_projection">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_analytics" value="ANALYTICS / RECOMMENDATION — validated events → low-cost lake → SQL/models → dashboards and ranked candidates" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="700" width="2680" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_events" value="Vector / Fluent Bit&#10;QoE + behavior" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_analytics">
+          <mxGeometry x="80" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_lake" value="Parquet/Iceberg lake&#10;partition + retention" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_analytics">
+          <mxGeometry x="600" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_query" value="Trino + DuckDB&#10;SQL + scheduled jobs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_analytics">
+          <mxGeometry x="1120" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_output" value="Grafana/Metabase&#10;recommendation outputs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_analytics">
+          <mxGeometry x="1640" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_ad" value="Privacy-safe ad metrics&#10;external ADS export" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#6B7280;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;dashed=1;" vertex="1" parent="p3_analytics">
+          <mxGeometry x="2160" y="80" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_ae0" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2F855A;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_events" target="p3_lake">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_ae1" value="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2F855A;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_lake" target="p3_query">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_ae2" value="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2F855A;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_query" target="p3_output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_ae3" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2F855A;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p3_output" target="p3_ad">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_security" value="SECURITY / DIGITAL FORENSICS — detect broadly, preserve narrowly, investigate read-only with chain-of-custody" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="980" width="2680" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_telemetry" value="Audit · endpoint · runtime&#10;network telemetry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_security">
+          <mxGeometry x="80" y="95" width="330" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_detect" value="Wazuh · Falco · Suricata&#10;normalize + alert" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_security">
+          <mxGeometry x="600" y="95" width="330" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_seclake" value="Security telemetry lake&#10;searchable operations data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_security">
+          <mxGeometry x="1120" y="95" width="330" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_worm" value="Separate WORM vault&#10;hash + sign + custody" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;shape=cylinder3;" vertex="1" parent="p3_security">
+          <mxGeometry x="1640" y="95" width="330" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_investigate" value="Forensic workstation&#10;case-scoped read-only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p3_security">
+          <mxGeometry x="2160" y="95" width="330" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_se0" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#805AD5;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_telemetry" target="p3_detect">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_se1" value="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#805AD5;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;flowAnimation=1;" edge="1" parent="1" source="p3_detect" target="p3_seclake">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_se2" value="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#805AD5;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p3_seclake" target="p3_worm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_se3" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#805AD5;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p3_worm" target="p3_investigate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_note" value="Analytics retention is not evidence retention. Only selected case data crosses into WORM; every export and access is logged." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#805AD5;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1330" width="1820" height="95" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="4 Recovery and Cost Boundary">
+    <mxGraphModel dx="2820" dy="1510" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2820" pageHeight="1510" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4 Recovery and Cost Boundary_title" value="DISASTER RECOVERY AND THE ECONOMIC DELIVERY BOUNDARY" style="text;html=1;align=left;verticalAlign=middle;fontSize=27;fontStyle=1;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="70" y="25" width="2680" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="4 Recovery and Cost Boundary_subtitle" value="Replication is explicit, asynchronous, tested and independent; CDN remains the viewer fan-out layer." style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontColor=#4B5563;" vertex="1" parent="1">
+          <mxGeometry x="70" y="75" width="2680" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_dr" value="RECOVERY FLOWS" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="140" width="2680" height="660" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_pg_a" value="Primary PostgreSQL HA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;shape=cylinder3;" vertex="1" parent="p4_dr">
+          <mxGeometry x="90" y="65" width="560" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_gate_0" value="replicate + verify" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p4_dr">
+          <mxGeometry x="900" y="65" width="430" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_pg_b" value="Async PostgreSQL replica" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;shape=cylinder3;" vertex="1" parent="p4_dr">
+          <mxGeometry x="1580" y="65" width="620" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_ea_0" value="logical / physical async" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p4_pg_a" target="p4_gate_0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_eb_0" value="verified" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p4_gate_0" target="p4_pg_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_obj_a" value="Primary Ceph / MinIO" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;shape=cylinder3;" vertex="1" parent="p4_dr">
+          <mxGeometry x="90" y="200" width="560" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_gate_1" value="replicate + verify" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p4_dr">
+          <mxGeometry x="900" y="200" width="430" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_obj_b" value="Replicated object store" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;shape=cylinder3;" vertex="1" parent="p4_dr">
+          <mxGeometry x="1580" y="200" width="620" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_ea_1" value="versioned object replication" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p4_obj_a" target="p4_gate_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_eb_1" value="verified" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p4_gate_1" target="p4_obj_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_git_a" value="Harbor + GitOps repository" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p4_dr">
+          <mxGeometry x="90" y="335" width="560" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_gate_2" value="replicate + verify" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p4_dr">
+          <mxGeometry x="900" y="335" width="430" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_git_b" value="Registry mirror + Git clone" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p4_dr">
+          <mxGeometry x="1580" y="335" width="620" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_ea_2" value="signed images + desired state" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p4_git_a" target="p4_gate_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_eb_2" value="verified" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p4_gate_2" target="p4_git_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_ev_a" value="WORM evidence + backup vault" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;shape=cylinder3;" vertex="1" parent="p4_dr">
+          <mxGeometry x="90" y="470" width="560" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_gate_3" value="replicate + verify" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="p4_dr">
+          <mxGeometry x="900" y="470" width="430" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_ev_b" value="Independent immutable replica" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;shape=cylinder3;" vertex="1" parent="p4_dr">
+          <mxGeometry x="1580" y="470" width="620" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_ea_3" value="hash-verified immutable copy" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p4_ev_a" target="p4_gate_3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_eb_3" value="verified" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#0F6B78;strokeWidth=3;endArrow=block;endFill=1;labelBackgroundColor=#ffffff;fontColor=#1F2937;fontSize=11;dashed=1;" edge="1" parent="1" source="p4_gate_3" target="p4_ev_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_accept" value="RECOVERY ACCEPTANCE&#10;restore → application verification → forensic/evidence validation → DNS failover" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e8ec;strokeColor=#0F6B78;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="730" width="1980" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_capacity" value="LIVE DELIVERY CAPACITY AT 4.1 Mbps" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="870" width="2680" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_c1" value="1K viewers&#10;4.1 Gbps raw&#10;6.15 Gbps engineered" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p4_capacity">
+          <mxGeometry x="200" y="70" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_c2" value="10K viewers&#10;41 Gbps raw&#10;61.5 Gbps engineered" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p4_capacity">
+          <mxGeometry x="1050" y="70" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_c3" value="100K viewers&#10;410 Gbps raw&#10;615 Gbps engineered" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p4_capacity">
+          <mxGeometry x="1900" y="70" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_decisions" value="COST DECISION" style="swimlane;startSize=36;rounded=1;container=1;pointerEvents=0;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#6B7280;strokeWidth=2;fontColor=#1F2937;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1150" width="2680" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_d1" value="0–1K&#10;AWS / managed is cheaper" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#2B6CB0;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p4_decisions">
+          <mxGeometry x="40" y="75" width="550" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_d2" value="~10K&#10;near break-even; negotiate CDN first" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#D69E2E;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p4_decisions">
+          <mxGeometry x="690" y="75" width="550" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_d3" value="~100K&#10;hybrid is economically plausible" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2F855A;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p4_decisions">
+          <mxGeometry x="1340" y="75" width="550" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_d4" value="ALL SCALES&#10;keep CDN / ISP edge fan-out" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#C53030;strokeWidth=2;fontColor=#1F2937;fontSize=13;align=center;verticalAlign=middle;spacing=8;fontStyle=1;" vertex="1" parent="p4_decisions">
+          <mxGeometry x="1990" y="75" width="550" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -8,3 +8,4 @@ Use [index.html](./index.html) to open six focused interactive diagrams. The arc
 04. [Live Streaming](./04-live-streaming.html) — Dual-feed encoding, MediaPackage v2, failover, harvest jobs, and evidence. [Markdown](./04-live-streaming.md) · [Draw.io](./drawio/04-live-streaming.drawio)
 05. [Analytics, Recommendation & Ad-Tech](./05-analytics-recommendation-adtech.html) — Firehose lake analytics, Amazon Personalize, external ADS, and MediaTailor. [Markdown](./05-analytics-recommendation-adtech.md) · [Draw.io](./drawio/05-analytics-recommendation-adtech.drawio)
 06. [Security, DevOps & Disaster Recovery](./06-security-devops-dr.html) — OIDC CI, production GitOps approval, tiered recovery, and separate evidence. [Markdown](./06-security-devops-dr.md) · [Draw.io](./drawio/06-security-devops-dr.drawio)
+07. [Development and AWS Cost Estimate](./07-cost-estimate.md) — Scale scenarios for 0 to 100K viewers, VOD, live streaming, development, operations, and TCO assumptions.

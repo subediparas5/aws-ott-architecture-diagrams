@@ -2,6 +2,7 @@
 
 Each file contains one page per flow, including What / Why / How and numbered handoffs. Open the files with [diagrams.net](https://app.diagrams.net/) or draw.io Desktop.
 
+- [00-full-ott-platform](00-full-ott-platform.drawio)
 - [01-executive-overview](01-executive-overview.drawio)
 - [02-platform-microservices](02-platform-microservices.drawio)
 - [03-vod-processing](03-vod-processing.drawio)

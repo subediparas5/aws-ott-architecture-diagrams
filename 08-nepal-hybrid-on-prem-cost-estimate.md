@@ -1,5 +1,7 @@
 # Nepal hybrid and in-house OTT architecture cost estimate
 
+> **Status:** This is the full private-infrastructure sensitivity case, not the recommended launch architecture. Use the [cost-effective hybrid diagram](./09-cloudflare-hybrid-architecture.html) and [scale decision model](./10-cost-optimized-architecture-by-scale.md) for the current recommendation; activate Nepal managed capacity before considering owned servers.
+
 **Estimate date:** 22 July 2026  
 **Currency:** USD and NPR at **NPR 154.62/USD**, Nepal Rastra Bank USD selling rate for 21 July 2026  
 **Accuracy:** decision-grade planning estimate, normally ±35–50% until Nepal colocation, transit/CDN, server, tax and support bids are received
